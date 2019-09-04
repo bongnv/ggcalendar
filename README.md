@@ -1,7 +1,7 @@
 Install node & nativefier first
 
     $brew install node
-    $node install nativefier -g
+    $npm install nativefier -g
     
 Run the script to build Google Calendar app
 
