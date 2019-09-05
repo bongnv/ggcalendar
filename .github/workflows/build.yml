@@ -27,6 +27,6 @@ jobs:
     - name: Release
       uses: docker://softprops/action-gh-release
       with:
-        body_path: "Google Calendar-darwin-x64.tar.gz"
+        files: "Google Calendar-darwin-x64.tar.gz"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
