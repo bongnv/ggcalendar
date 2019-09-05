@@ -21,6 +21,7 @@ jobs:
         node_version: 12
     - name: Build
       run: |
+        npm install nativefier -g
         ./build.sh
         tar -czvf "Google Calendar-darwin-x64.tar.gz" "Google Calendar-darwin-x64"
     - name: Release
