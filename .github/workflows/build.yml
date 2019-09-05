@@ -6,9 +6,6 @@ jobs:
   build:
     runs-on: macOS-latest
     
-    env:
-      node_version: 12
-    
     steps:
     - name: Checkout
       uses: actions/checkout@master
@@ -16,6 +13,8 @@ jobs:
       uses: actions/setup-node@v1
       with:
         version: ${{ node_version }}
+      env:
+        node_version: 12
     - name: Build
       run: |
         ./build.sh
