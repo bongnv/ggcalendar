@@ -25,7 +25,7 @@ jobs:
         ./build.sh
         tar -czvf "Google Calendar-darwin-x64.tar.gz" "Google Calendar-darwin-x64"
     - name: Release
-      uses: docker://softprops/action-gh-release
+      uses: softprops/action-gh-release@master
       with:
         files: "Google Calendar-darwin-x64.tar.gz"
       env:
