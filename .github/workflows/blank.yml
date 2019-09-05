@@ -1,0 +1,28 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: macOS-latest
+    
+    env:
+    - node_version: 12
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@master
+    - name: Use Node.js ${{ node_version }}
+      uses: actions/setup-node@v1
+      with:
+        version: ${{ node_version }}
+    - name: Build
+      run: |
+        ./build.sh
+        tar -czvf "Google Calendar-darwin-x64.tar.gz" "Google Calendar-darwin-x64"
+    - name: Release
+      uses: docker://softprops/action-gh-release
+      with:
+        body_path: "Google Calendar-darwin-x64.tar.gz"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
